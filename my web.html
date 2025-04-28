@@ -1,0 +1,991 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austine Nyagaka - Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+.hero-bg {
+background-image: url('https://readdy.ai/api/search-image?query=professional%2520modern%2520abstract%2520background%2520with%2520soft%2520blue%2520gradient%2520on%2520the%2520right%2520side%2520and%2520clean%2520white%2520space%2520on%2520the%2520left%2520side%252C%2520suitable%2520for%2520a%2520developer%2520portfolio%2520website%252C%2520minimal%2520design%252C%2520no%2520text%252C%2520no%2520people%252C%2520subtle%2520tech%2520pattern&width=1200&height=600&seq=portfolio1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #3b82f6;
+}
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 16px;
+height: 16px;
+background: #3b82f6;
+border-radius: 50%;
+cursor: pointer;
+}
+.custom-checkbox {
+position: relative;
+padding-left: 28px;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #e5e7eb;
+border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+border-color: #3b82f6;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #3b82f6;
+border-color: #3b82f6;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3b82f6;
+}
+input:checked + .slider:before {
+transform: translateX(24px);
+}
+.project-card:hover .project-overlay {
+opacity: 1;
+}
+.timeline-dot::before {
+content: '';
+position: absolute;
+width: 2px;
+height: 100%;
+background-color: #e5e7eb;
+left: 11px;
+top: 24px;
+z-index: -1;
+}
+.timeline-item:last-child .timeline-dot::before {
+display: none;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">AustineNyagaka</a>
+<div class="hidden md:flex space-x-8">
+<a href="#about" class="text-gray-700 hover:text-primary transition">About</a>
+<a href="#resume" class="text-gray-700 hover:text-primary transition">Resume</a>
+<a href="#projects" class="text-gray-700 hover:text-primary transition">Projects</a>
+<a href="#skills" class="text-gray-700 hover:text-primary transition">Skills</a>
+<a href="#blog" class="text-gray-700 hover:text-primary transition">Blog</a>
+<a href="#contact" class="text-gray-700 hover:text-primary transition">Contact</a>
+</div>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</nav>
+<!-- Mobile Menu (Hidden by default) -->
+<div class="fixed inset-0 bg-white z-40 hidden flex-col pt-20 px-6">
+<a href="#about" class="py-4 text-lg border-b border-gray-100">About</a>
+<a href="#resume" class="py-4 text-lg border-b border-gray-100">Resume</a>
+<a href="#projects" class="py-4 text-lg border-b border-gray-100">Projects</a>
+<a href="#skills" class="py-4 text-lg border-b border-gray-100">Skills</a>
+<a href="#blog" class="py-4 text-lg border-b border-gray-100">Blog</a>
+<a href="#contact" class="py-4 text-lg">Contact</a>
+</div>
+<!-- Hero Section -->
+<section id="about" class="pt-24 hero-bg">
+<div class="container mx-auto px-6 py-20">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 mb-10 md:mb-0">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Austine Nyagaka</h1>
+<h2 class="text-xl md:text-2xl text-primary font-medium mb-6">Software Engineer</h2>
+<p class="text-gray-700 mb-8 max-w-lg">I am a passionate student currently pursuing Software Engineering at Kirinyaga University. With a focus on web development and software engineering, I am dedicated to creating efficient and elegant solutions to complex problems.</p>
+<div class="flex space-x-4 mb-8">
+<a href="https://www.linkedin.com/in/austine-undefined-333a742b3/" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="https://github.com/Austine0930" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-github-fill"></i>
+</a>
+<a href="https://x.com/hakeem_austine" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-mail-fill"></i>
+</a>
+</div>
+<div class="flex flex-wrap gap-3">
+<a href="#contact" class="px-6 py-3 bg-primary text-white rounded-button hover:bg-blue-600 transition shadow-sm whitespace-nowrap">Get in Touch</a>
+<a href="#resume" class="px-6 py-3 bg-white text-primary border border-primary rounded-button hover:bg-gray-50 transition whitespace-nowrap">View Resume</a>
+</div>
+</div>
+<div class="md:w-1/2 flex justify-center">
+<div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-lg">
+<img src="https://static.readdy.ai/image/1889296e25193f6391db7fdbcc138004/7a6e8e928bce563dd683336633fa5d31.jpeg" alt="Austine Nyagaka" class="w-full h-full object-cover object-top">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Resume Section -->
+<section id="resume" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Resume</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">My academic and professional journey showcasing my education and certifications.</p>
+</div>
+<div class="flex flex-col md:flex-row gap-10">
+<!-- Education Column -->
+<div class="md:w-1/2">
+<div class="mb-10">
+<h3 class="text-2xl font-semibold text-gray-900 mb-6">Education</h3>
+<div class="space-y-8">
+<div class="timeline-item relative pl-8 timeline-dot">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<h4 class="text-lg font-medium text-gray-900">Bachelor of Science in Software Engineering</h4>
+<p class="text-primary mb-2">Kirinyaga University • 2024 - present</p>
+<p class="text-gray-600">Focusing on software development, algorithms, and data structures</p>
+</div>
+<div class="timeline-item relative pl-8 timeline-dot">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<h4 class="text-lg font-medium text-gray-900">High School</h4>
+<p class="text-primary mb-2">Chavakali Boys High School • 2019 - 2023</p>
+<p class="text-gray-600">KCSE Grade B(Plain).</p>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-6">Certifications</h3>
+<div class="space-y-6">
+<div class="bg-white p-6 rounded shadow-sm">
+<h4 class="text-lg font-medium text-gray-900">AWS Certified Cloud Practitioner</h4>
+<p class="text-primary mb-2">Amazon Web Services • 2025 <br> Currently enrolled</p>
+<p class="text-gray-600">Foundational understanding of AWS Cloud services, security, and architecture.</p>
+</div>
+<div class="bg-white p-6 rounded shadow-sm">
+<h4 class="text-lg font-medium text-gray-900">React.js Developer Certification</h4>
+<p class="text-primary mb-2">Meta • 2025 <br> Currently enrolled</p>
+<p class="text-gray-600">Advanced knowledge of React.js, state management, and frontend architecture.</p>
+</div>
+<div class="bg-white p-6 rounded shadow-sm">
+<h4 class="text-lg font-medium text-gray-900">Python for Data Science</h4>
+<p class="text-primary mb-2">IBM • 2025 <br> Currently enrolled</p>
+<p class="text-gray-600">Proficiency in Python programming for data analysis and visualization.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Experience Column -->
+<div class="md:w-1/2">
+<h3 class="text-2xl font-semibold text-gray-900 mb-6">Work Experience</h3>
+<div class="space-y-8">
+<div class="timeline-item relative pl-8 timeline-dot">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React.js</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">JavaScript</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Tailwind CSS</span>
+</div>
+</div>
+<div class="timeline-item relative pl-8 timeline-dot">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<h4 class="text-lg font-medium text-gray-900">Student Assistant</h4>
+<p class="text-primary mb-2">Chavakali High School IT Department • Sep 2020 - Nov 2022</p>
+<p class="text-gray-600 mb-4">Assisted in maintaining School's computer labs and providing technical support to students and faculty.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Technical Support</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Network Management</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Troubleshooting</span>
+</div>
+</div>
+<div class="timeline-item relative pl-8 timeline-dot">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<h4 class="text-lg font-medium text-gray-900">Freelance Web Developer</h4>
+<p class="text-primary mb-2">Self-employed • 2024 - Present</p>
+<p class="text-gray-600 mb-4">Developing websites for small businesses and startups, focusing on responsive design and user experience.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">A showcase of my technical skills and problem-solving abilities through various projects.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative project-card">
+<img src="https://readdy.ai/api/search-image?query=modern%2520e-commerce%2520website%2520interface%2520with%2520clean%2520design%252C%2520product%2520grid%2520layout%252C%2520shopping%2520cart%2520icon%252C%2520search%2520functionality%252C%2520high-quality%2520UI%2520design%252C%2520professional%2520website%2520mockup%252C%2520digital%2520storefront%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=project1&orientation=landscape" alt="E-commerce Platform" class="w-full h-48 object-cover object-top">
+<div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
+<div class="flex space-x-3">
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">Live Demo</a>
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">GitHub</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Platform</h3>
+<p class="text-gray-600 mb-4">A full-stack e-commerce platform with product catalog, shopping cart, and payment integration.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">React.js</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Node.js</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">MongoDB</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Stripe</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative project-card">
+<img src="https://readdy.ai/api/search-image?query=task%2520management%2520application%2520interface%2520with%2520kanban%2520board%2520layout%252C%2520task%2520cards%252C%2520progress%2520tracking%252C%2520clean%2520modern%2520UI%252C%2520productivity%2520app%2520design%252C%2520project%2520management%2520tool%252C%2520digital%2520organization%2520system%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=project2&orientation=landscape" alt="Task Manager App" class="w-full h-48 object-cover object-top">
+<div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
+<div class="flex space-x-3">
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">Live Demo</a>
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">GitHub</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Task Manager App</h3>
+<p class="text-gray-600 mb-4">A Kanban-style task management application with drag-and-drop functionality and team collaboration features.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Vue.js</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Firebase</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Vuex</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative project-card">
+<img src="https://readdy.ai/api/search-image?query=weather%2520forecast%2520application%2520interface%2520with%2520temperature%2520display%252C%2520weather%2520icons%252C%2520location%2520search%252C%2520weekly%2520forecast%252C%2520clean%2520modern%2520UI%252C%2520meteorological%2520data%2520visualization%252C%2520climate%2520information%2520dashboard%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=project3&orientation=landscape" alt="Weather Forecast App" class="w-full h-48 object-cover object-top">
+<div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
+<div class="flex space-x-3">
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">Live Demo</a>
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">GitHub</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Weather Forecast App</h3>
+<p class="text-gray-600 mb-4">A weather application that provides real-time forecasts, location-based weather data, and interactive maps.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">JavaScript</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">OpenWeatherAPI</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Chart.js</span>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative project-card">
+<img src="https://readdy.ai/api/search-image?query=fitness%2520tracking%2520application%2520interface%2520with%2520workout%2520plans%252C%2520progress%2520charts%252C%2520exercise%2520library%252C%2520clean%2520modern%2520UI%252C%2520health%2520and%2520fitness%2520app%2520design%252C%2520activity%2520monitoring%2520dashboard%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=project4&orientation=landscape" alt="Fitness Tracker" class="w-full h-48 object-cover object-top">
+<div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
+<div class="flex space-x-3">
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">Live Demo</a>
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">GitHub</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Fitness Tracker</h3>
+<p class="text-gray-600 mb-4">A mobile-responsive fitness application for tracking workouts, setting goals, and monitoring progress.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">React Native</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Redux</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Firebase</span>
+</div>
+</div>
+</div>
+<!-- Project 5 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<div class="relative project-card">
+<img src="https://readdy.ai/api/search-image?query=online%2520learning%2520platform%2520interface%2520with%2520course%2520catalog%252C%2520video%2520player%252C%2520progress%2520tracking%252C%2520clean%2520modern%2520UI%252C%2520educational%2520website%2520design%252C%2520e-learning%2520dashboard%252C%2520digital%2520classroom%2520environment%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=project5&orientation=landscape" alt="E-Learning Platform" class="w-full h-48 object-cover object-top">
+<div class="absolute inset-0 bg-primary bg-opacity-80 flex items-center justify-center opacity-0 transition-opacity duration-300 project-overlay">
+<div class="flex space-x-3">
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">Live Demo</a>
+<a href="#" class="px-4 py-2 bg-white text-primary rounded-button hover:bg-gray-100 transition whitespace-nowrap">GitHub</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">E-Learning Platform</h3>
+<p class="text-gray-600 mb-4">An educational platform with course management, video lessons, quizzes, and student progress tracking.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Django</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Python</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">PostgreSQL</span>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="https://austine0930.github.io/" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary rounded-button hover:bg-gray-50 transition whitespace-nowrap">
+<i class="ri-github-fill mr-2"></i>
+View More on GitHub
+</a>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Technical Skills Tracker</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">A comprehensive overview of my technical expertise and proficiency levels.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Frontend Skills -->
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-2 text-primary">
+<i class="ri-code-s-slash-line ri-lg"></i>
+</div>
+Frontend Development
+</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">HTML/CSS</span>
+<span class="text-primary">70%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 70%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">JavaScript</span>
+<span class="text-primary">60%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">React.js</span>
+<span class="text-primary">20%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Vue.js</span>
+<span class="text-primary">20%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Tailwind CSS</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Backend Skills -->
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-2 text-primary">
+<i class="ri-server-line ri-lg"></i>
+</div>
+Backend Development
+</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Node.js</span>
+<span class="text-primary">50%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Express.js</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Python</span>
+<span class="text-primary">50%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Django</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">RESTful APIs</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Database Skills -->
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-2 text-primary">
+<i class="ri-database-2-line ri-lg"></i>
+</div>
+Database & Cloud
+</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">MongoDB</span>
+<span class="text-primary">20%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 20%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">MySQL</span>
+<span class="text-primary">60%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Firebase</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">AWS</span>
+<span class="text-primary">30%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tools & Others -->
+<div>
+<h3 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center mr-2 text-primary">
+<i class="ri-tools-line ri-lg"></i>
+</div>
+Tools & Others
+</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Git & GitHub</span>
+<span class="text-primary">55%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 55%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Docker</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Figma</span>
+<span class="text-primary">0%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Responsive Design</span>
+<span class="text-primary">10%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Skills Chart -->
+<div class="mt-16">
+<div id="skillsChart" class="w-full h-80"></div>
+</div>
+</div>
+</section>
+<!-- Blog Section -->
+<section id="blog" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Latest Articles</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Sharing insights, tutorials, and experiences in software development.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Blog Post 1 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=modern%2520web%2520development%2520concept%2520with%2520code%2520editor%2520showing%2520React%2520components%252C%2520clean%2520workspace%252C%2520programming%2520environment%252C%2520software%2520development%2520tools%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=blog1&orientation=landscape" alt="Modern React Patterns" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="text-sm text-gray-500">April 15, 2025</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="text-sm text-primary">React.js</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Modern React Patterns for 2025</h3>
+<p class="text-gray-600 mb-4">Exploring the latest patterns and best practices in React development, including hooks, context API, and performance optimization techniques.</p>
+<a href="#" class="inline-flex items-center text-primary hover:underline">
+Read More
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+<!-- Blog Post 2 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=database%2520architecture%2520concept%2520with%2520schema%2520diagrams%252C%2520data%2520flow%2520visualization%252C%2520database%2520management%2520system%252C%2520NoSQL%2520vs%2520SQL%2520comparison%252C%2520data%2520modeling%2520tools%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=blog2&orientation=landscape" alt="NoSQL vs SQL" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="text-sm text-gray-500">March 28, 2025</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="text-sm text-primary">Databases</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">NoSQL vs SQL: Choosing the Right Database</h3>
+<p class="text-gray-600 mb-4">A comprehensive comparison of SQL and NoSQL databases, their use cases, performance characteristics, and how to choose the right one for your project.</p>
+<a href="#" class="inline-flex items-center text-primary hover:underline">
+Read More
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+<!-- Blog Post 3 -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md">
+<img src="https://readdy.ai/api/search-image?query=cloud%2520computing%2520architecture%2520with%2520serverless%2520functions%2520diagram%252C%2520AWS%2520Lambda%2520concept%252C%2520microservices%2520architecture%252C%2520cloud%2520infrastructure%2520visualization%252C%2520modern%2520tech%2520stack%252C%2520no%2520text%2520or%2520people%252C%2520neutral%2520background&width=600&height=400&seq=blog3&orientation=landscape" alt="Serverless Architecture" class="w-full h-48 object-cover object-top">
+<div class="p-6">
+<div class="flex items-center mb-4">
+<span class="text-sm text-gray-500">February 12, 2025</span>
+<span class="mx-2 text-gray-300">•</span>
+<span class="text-sm text-primary">Cloud Computing</span>
+</div>
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Getting Started with Serverless Architecture</h3>
+<p class="text-gray-600 mb-4">An introduction to serverless computing, its benefits, limitations, and how to build scalable applications using AWS Lambda and other serverless platforms.</p>
+<a href="#" class="inline-flex items-center text-primary hover:underline">
+Read More
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="inline-flex items-center px-6 py-3 bg-white text-primary border border-primary rounded-button hover:bg-gray-50 transition whitespace-nowrap">
+View All Articles
+<i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Have a project in mind or want to discuss a potential collaboration? Feel free to reach out!</p>
+</div>
+<div class="flex flex-col md:flex-row gap-10">
+<!-- Contact Information -->
+<div class="md:w-1/3">
+<div class="bg-white p-8 rounded-lg shadow-md h-full">
+<h3 class="text-xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-primary mr-4">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900 mb-1">Location</h4>
+<p class="text-gray-600">Nairobi, Kenya</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-primary mr-4">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900 mb-1">Email</h4>
+<p class="text-gray-600">austinenyagaka@gmail.com</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100 text-primary mr-4">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900 mb-1">Phone</h4>
+<p class="text-gray-600">+254 727600601</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="font-medium text-gray-900 mb-4">Follow Me</h4>
+<div class="flex space-x-3">
+<a href="https://www.linkedin.com/in/austine-undefined-333a742b3/" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-linkedin-fill"></i>
+</a>
+<a href="https://github.com/Austine0930" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-github-fill"></i>
+</a>
+<a href="https://x.com/hakeem_austine" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="https://www.instagram.com/au.stine_lyon/" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-primary hover:text-white transition">
+<i class="ri-instagram-line"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="md:w-2/3">
+<div class="bg-white p-8 rounded-lg shadow-md">
+<h3 class="text-xl font-semibold text-gray-900 mb-6">Send Me a Message</h3>
+<form>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20 text-gray-700" placeholder="Your Name">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20 text-gray-700" placeholder="john@example.com">
+</div>
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+<input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20 text-gray-700" placeholder="Project Inquiry">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/20 text-gray-700 resize-none" placeholder="Your message here..."></textarea>
+</div>
+<div class="mb-6">
+<label class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+<span class="text-gray-700">I agree to the privacy policy and terms of service</span>
+</label>
+</div>
+<button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-button hover:bg-blue-600 transition shadow-sm whitespace-nowrap">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between mb-10">
+<div class="mb-8 md:mb-0">
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 inline-block">AustineNyagaka</a>
+<p class="text-gray-400 max-w-xs">A passionate software developer focused on creating efficient and elegant solutions to complex problems.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div>
+<h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+<li><a href="#resume" class="text-gray-400 hover:text-white transition">Resume</a></li>
+<li><a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Resources</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+<li><a href="https://github.com/Austine0930" class="text-gray-400 hover:text-white transition">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/austine-undefined-333a742b3/" class="text-gray-400 hover:text-white transition">LinkedIn</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Contact</h4>
+<ul class="space-y-2">
+<li class="flex items-center text-gray-400">
+<i class="ri-mail-line mr-2"></i>
+austinenyagaka@example.com
+</li>
+<li class="flex items-center text-gray-400">
+<i class="ri-phone-line mr-2"></i>
++254 727600601
+</li>
+<li class="flex items-center text-gray-400">
+<i class="ri-map-pin-line mr-2"></i>
+Nairobi, Kenya
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">© 2025 Austine Nyagaka. All rights reserved.</p>
+<div class="flex space-x-4">
+<a href="https://www.linkedin.com/in/austine-undefined-333a742b3/" class="text-gray-400 hover:text-white transition">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+<a href="https://github.com/Austine0930" class="text-gray-400 hover:text-white transition">
+<i class="ri-github-fill ri-lg"></i>
+</a>
+<a href="https://x.com/hakeem_austine" class="text-gray-400 hover:text-white transition">
+<i class="ri-twitter-fill ri-lg"></i>
+</a>
+<a href="https://www.instagram.com/au.stine_lyon/" class="text-gray-400 hover:text-white transition">
+<i class="ri-instagram-line ri-lg"></i>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+<i class="ri-arrow-up-line ri-lg"></i>
+</button>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile menu toggle
+const menuButton = document.querySelector('.md\\:hidden');
+const mobileMenu = document.querySelector('.fixed.inset-0.bg-white');
+menuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+mobileMenu.classList.toggle('flex');
+});
+// Mobile menu links
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenu.classList.remove('flex');
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Back to top button
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.add('opacity-0', 'invisible');
+backToTopButton.classList.remove('opacity-100', 'visible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Skills Chart
+const skillsChart = echarts.init(document.getElementById('skillsChart'));
+const option = {
+animation: false,
+tooltip: {
+trigger: 'axis',
+axisPointer: {
+type: 'shadow'
+},
+backgroundColor: 'rgba(255, 255, 255, 0.9)',
+borderColor: '#e5e7eb',
+textStyle: {
+color: '#1f2937'
+}
+},
+grid: {
+left: '0%',
+right: '0%',
+bottom: '0%',
+top: '10%',
+containLabel: true
+},
+xAxis: {
+type: 'category',
+data: ['HTML/CSS', 'JavaScript', 'React', 'Node.js', 'Python', 'MongoDB', 'Git'],
+axisLine: {
+lineStyle: {
+color: '#e5e7eb'
+}
+},
+axisLabel: {
+color: '#1f2937'
+}
+},
+yAxis: {
+type: 'value',
+max: 100,
+axisLine: {
+show: false
+},
+axisTick: {
+show: false
+},
+axisLabel: {
+color: '#1f2937'
+},
+splitLine: {
+lineStyle: {
+color: '#e5e7eb'
+}
+}
+},
+series: [
+{
+name: 'Skill Level',
+type: 'bar',
+data: [70, 60, 20, 50, 50, 20, 55],
+itemStyle: {
+color: 'rgba(87, 181, 231, 1)',
+borderRadius: 4
+},
+emphasis: {
+itemStyle: {
+color: 'rgba(87, 181, 231, 0.8)'
+}
+}
+}
+]
+};
+skillsChart.setOption(option);
+window.addEventListener('resize', function() {
+skillsChart.resize();
+});
+});
+</script>
+
+</html>
